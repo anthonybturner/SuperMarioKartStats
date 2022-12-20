@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Mario Kart 8 Deluxe Statistics</h1>
+    <img classs ="thumbnail" src="images/mario-kart-8.png" />
+  
+</div>
+
+@model Statistics
+<form asp-action="DriverStatsDropdown" asp-controller="Home" method="post">
+    <div class="row content">
+        <div class="row">
+            <div class="col-md-4">
+                <select id="stats" asp-for="Key" name="stats" class="form-control" asp-items="@ViewBag.StatsList">
+                <option>Select a Stat</option>
+            </select>
+                <input type="hidden" asp-for="Key" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3">
+                <h2>Drivers</h2>
+                <select id="drivers" asp-for="Name" name="drivers" class="form-control" asp-items="@ViewBag.Drivers">
+                   <option>Select a Driver</option>
+                </select>
+                <input type="hidden" asp-for="Name" />
+            </div>
+
+            <div class="form-group col-md-3">
+                <h2>Bodies</h2>
+                <select id="bodies" asp-for="Name" name="bodies" class="form-control" asp-items="@ViewBag.Bodies">
+                    <option>Select a Body</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-3">
+                <h2>Tires</h2>
+                <select id="tires" asp-for="Name" name="tires" class="form-control" asp-items="@ViewBag.Tires">
+                    <option>Select a Tire</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-3">
+                <h2>Gliders</h2>
+                <select id="gliders" asp-for="Name" name="gliders" class="form-control" asp-items="@ViewBag.Gliders">
+                    <option>Select a Glider</option>
+
+                </select>
+            </div>
+
+            <div class="form-group col-md-3">
+                <button id="build-stats" asp-action="Index" class="btn btn-primary">Build</button>
+            </div>
+        </div>
+    </div>
+</form>
